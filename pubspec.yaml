@@ -1,0 +1,23 @@
+name: food
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=2.7.0 <3.0.0'
+
+dependencies: 
+  cupertino_icons: ^1.0.2
+  get_cli: ^1.5.0
+  get: 4.1.4
+  dio: ^4.0.0
+  font_awesome_flutter: ^9.0.0
+  flutter: 
+    sdk: flutter
+
+dev_dependencies: 
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  uses-material-design: true
+
