@@ -33,8 +33,6 @@ class SignupView extends GetView<SignupController> {
                         }else if(value.length!=11){
                           return 'The phone must be 11 characters.';
                         }
-
-
                         return null;
                       },
                       keyboardType: TextInputType.phone,
