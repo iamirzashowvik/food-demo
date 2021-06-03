@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:food/app/modules/defaulthome/controllers/defaulthome_controller.dart';
+import 'package:food/app/modules/defaulthome/views/defaulthome_view.dart';
 import 'package:food/app/modules/home/views/home_view.dart';
 import 'package:food/app/routes/app_pages.dart';
 
@@ -8,11 +10,14 @@ import 'package:get/get.dart';
 class SignupController extends GetxController {
   //TODO: Implement SignupController
   Dio dio = Dio();
+Pattern emailPattern =
+      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 
   final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
+    Get.put(DefaulthomeController());
   }
 
   @override
@@ -46,7 +51,8 @@ if(
 response.data['token']!=null
 
 ){print('1');
-  Get.to(HomeView());
+
+  Get.to(DefaulthomeView());
 }else{
   print('2');
   Get.snackbar('Something Wrong', 'Check Internet Connection');
@@ -68,10 +74,11 @@ catch(e){
 }
 
 class TFFxM extends StatelessWidget {
-  TFFxM(this._userName,this.imptyText);
+  TFFxM(this._userName,this.imptyText,this.tit);
 
   final TextEditingController _userName;
   final String imptyText;
+  final TextInputType tit;
 
   @override
   Widget build(BuildContext context) {
@@ -89,6 +96,7 @@ class TFFxM extends StatelessWidget {
 
             return null;
           },
+          keyboardType: tit,
           decoration: new InputDecoration(
             focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
@@ -116,6 +124,7 @@ class TFFxM extends StatelessWidget {
                 borderRadius: BorderRadius
                     .circular(10)),
             filled: true,
+            
             border: InputBorder.none,
             hintText: imptyText,
           ),

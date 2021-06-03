@@ -141,14 +141,20 @@ class HomeView extends GetView<HomeController> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Image.network(
-                                      'https://image.freepik.com/free-psd/food-social-media-banner-post-template_202595-356.jpg',
-                                      width:
-                                          MediaQuery.of(context).size.width / 2,
-                                      height:
+                                     Container(height:
                                           MediaQuery.of(context).size.width / 4,
-                                      fit: BoxFit.fitWidth,
+                                  width:
+                                          MediaQuery.of(context).size.width / 2,
+                                  decoration: new BoxDecoration(
+                                    borderRadius: BorderRadius.only(topLeft:Radius.circular(20),topRight: Radius.circular(20)),
+                                    image: new DecorationImage(
+                                      image: new NetworkImage(
+                                        'https://image.freepik.com/free-psd/food-social-media-banner-post-template_202595-356.jpg',
+                                      ),
+                                      fit: BoxFit.cover,
                                     ),
+                                  )),
+                                   
                                     Padding(
                                       padding: const EdgeInsets.all(4.0),
                                       child: Text(
@@ -243,19 +249,23 @@ class HomeView extends GetView<HomeController> {
                           scrollDirection: Axis.vertical,
                           itemCount: controller.getPopularItemsLength.value,
                           itemBuilder: (BuildContext ctxt, int index) {
-
                             return Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     children: [
                                       Container(
                                           width: MediaQuery.of(context)
                                                   .size
-                                                  .width/4,height:MediaQuery.of(context)
-                                          .size
-                                          .width/4,
+                                                  .width /
+                                              4,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              4,
                                           decoration: new BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(5),
@@ -266,35 +276,67 @@ class HomeView extends GetView<HomeController> {
                                               fit: BoxFit.cover,
                                             ),
                                           )),
-                                      Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                        Text(
-                                          controller
-                                              .getPopularItemsVar[0].products[index].name,
-                                          style: TextStyle(
-                                              fontSize: 10,
-                                              fontWeight: FontWeight.bold),
+                                      Container(
+                                        height:
+                                            MediaQuery.of(context).size.width /
+                                                4,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      controller
+                                                          .getPopularItemsVar[0]
+                                                          .products[index]
+                                                          .name,
+                                                      style: TextStyle(
+                                                          fontSize: 10,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                    Text(
+                                                      '★★★★★',
+                                                      style: TextStyle(
+                                                          color:
+                                                              Colors.redAccent),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Text(
+                                                  '\$ ${controller.getPopularItemsVar[0].products[index].price.toString()}',
+                                                  style: TextStyle(
+                                                      fontSize: 10,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ]),
                                         ),
-                                        Text(
-                                          '★★★★★',
-                                          style: TextStyle(
-                                              color: Colors.redAccent),
-                                        ),
-                                        Text(
-                            controller
-                                .getPopularItemsVar[0].products[index].price.toString(),
-                                          style: TextStyle(
-                                              fontSize: 10,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ])
+                                      )
                                     ],
                                   ),
-                              Column( children: [
-                                Icon(FontAwesomeIcons.heart),
-                                 Icon(Icons.add)
-                              ])
+                                  Container(
+                                    height:
+                                        MediaQuery.of(context).size.width / 4,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Icon(FontAwesomeIcons.heart),
+                                            Icon(Icons.add)
+                                          ]),
+                                    ),
+                                  )
                                 ],
                               ),
                             );
