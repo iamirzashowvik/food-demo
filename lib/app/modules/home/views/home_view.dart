@@ -11,9 +11,6 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      // Use [SystemUiOverlayStyle.light] for white status bar
-      // or [SystemUiOverlayStyle.dark] for black status bar
-      // https://stackoverflow.com/a/58132007/1321917
       value: SystemUiOverlayStyle(
         statusBarColor: Colors.white,
       ),
@@ -343,15 +340,7 @@ class HomeView extends GetView<HomeController> {
                           }),
                     ),
                   ),
-                  // Obx(
-                  //
-                  //       () => Text(
-                  //         '${controller
-                  //                .getPopularItemsVar[0].products}',
-                  //     // '${controller.getCategoriesVar[0][0].name}',
-                  //     style: Theme.of(context).textTheme.headline4,
-                  //   ),
-                  // ),
+
                 ],
               ),
             ),

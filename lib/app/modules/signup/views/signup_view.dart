@@ -37,6 +37,7 @@ class SignupView extends GetView<SignupController> {
 
                         return null;
                       },
+                      keyboardType: TextInputType.phone,
                       decoration: buildInputDecoration('Phone Number'),
                     ),
                   ),
